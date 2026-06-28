@@ -1,16 +1,35 @@
 # TaskFlow - MERN Task Tracker
 
-A full-stack task tracker built with React, Node.js, Express.js, and MongoDB. The project is structured with a separate API and Vite frontend, mirroring the organization used in the referenced projects.
+TaskFlow is a full-stack task tracker built with the MERN stack. It supports complete task CRUD, validation, filtering, sorting, status movement, MongoDB persistence, and dynamic React updates without page refresh.
+
+## Live Demo
+
+- Frontend: https://task-seven-lake.vercel.app
+- Backend: https://taskflow-api-s36n.onrender.com
+- Health Check: https://taskflow-api-s36n.onrender.com/health
+
+## Preview
+
+![TaskFlow dashboard](docs/images/taskflow-dashboard.png)
 
 ## Features
 
 - Create, view, update, and delete tasks
-- REST API with Express controllers, routes, models, middleware, and MongoDB config
-- Mongoose schema validation plus frontend form validation
-- Dynamic React updates without page refresh
-- Filtering, sorting, search, priorities, due dates, and completion status
-- Responsive UI
-- Environment variable support for local and deployed URLs
+- Move tasks across `To do`, `In progress`, and `Done`
+- Search, filter, and sort tasks
+- Frontend form validation
+- Backend schema validation with Mongoose
+- REST API with Express.js
+- MongoDB Atlas integration
+- Responsive professional UI
+- Environment-based configuration
+
+## Tech Stack
+
+- Frontend: React.js, Vite, CSS, Lucide React
+- Backend: Node.js, Express.js
+- Database: MongoDB Atlas with Mongoose
+- Deployment: Vercel frontend, Render backend
 
 ## Project Structure
 
@@ -23,6 +42,7 @@ backend/
   models/
   routes/
   app.js
+
 frontend/
   src/
     components/
@@ -30,7 +50,7 @@ frontend/
     App.jsx
 ```
 
-## Environment Keys Needed
+## Environment Variables
 
 Backend `backend/.env.development.local`:
 
@@ -48,60 +68,25 @@ Frontend `frontend/.env.local`:
 VITE_API_BASE_URL=http://localhost:5500/api/v1
 ```
 
-For deployment, also provide:
-
-```env
-CLIENT_URL=https://your-frontend-url
-VITE_API_BASE_URL=https://your-backend-url/api/v1
-```
-
-If you want to allow more than one frontend origin, separate them with commas:
-
-```env
-CLIENT_URL=https://your-frontend-url,http://localhost:5173
-```
-
-## Deploy
-
-Recommended quick setup:
-
-- Backend: Render Web Service
-- Frontend: Vercel
-- Database: MongoDB Atlas
-
-Backend settings on Render:
-
-```txt
-Root Directory: backend
-Build Command: npm install
-Start Command: npm start
-```
-
-Backend environment variables:
+Production backend:
 
 ```env
 PORT=10000
 NODE_ENV=production
 APP_NAME=TaskFlow API
-CLIENT_URL=https://your-vercel-frontend-url.vercel.app
-DB_URI=mongodb+srv://username:password@cluster.mongodb.net/taskflow?retryWrites=true&w=majority&appName=Cluster0
+CLIENT_URL=https://task-seven-lake.vercel.app
+DB_URI=your_mongodb_connection_string
 ```
 
-Frontend settings on Vercel:
-
-```txt
-Root Directory: frontend
-Build Command: npm run build
-Output Directory: dist
-```
-
-Frontend environment variable:
+Production frontend:
 
 ```env
-VITE_API_BASE_URL=https://your-render-backend-url.onrender.com/api/v1
+VITE_API_BASE_URL=https://taskflow-api-s36n.onrender.com/api/v1
 ```
 
 ## Run Locally
+
+Backend:
 
 ```bash
 cd backend
@@ -109,20 +94,49 @@ npm install
 npm run dev
 ```
 
+Frontend:
+
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-Open `http://localhost:5173`.
+Open:
+
+```txt
+http://localhost:5173
+```
 
 ## API Routes
 
-Base URL: `/api/v1/tasks`
+Base URL:
+
+```txt
+/api/v1/tasks
+```
 
 - `GET /tasks` - list tasks with optional `status`, `priority`, `search`, `sortBy`, and `order`
 - `GET /tasks/:id` - get one task
 - `POST /tasks` - create a task
 - `PATCH /tasks/:id` - update a task
 - `DELETE /tasks/:id` - delete a task
+
+## Deployment
+
+Backend is deployed on Render with:
+
+```txt
+Root Directory: backend
+Build Command: npm install
+Start Command: npm start
+```
+
+Frontend is deployed on Vercel with:
+
+```txt
+Root Directory: frontend
+Build Command: npm run build
+Output Directory: dist
+```
+
