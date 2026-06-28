@@ -1,0 +1,27 @@
+{
+  "name": "taskflow-api",
+  "version": "1.0.0",
+  "description": "A MERN task tracker API for creating, organizing, updating, and deleting tasks.",
+  "author": "Justin Santosh",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "lint": "eslint . --ignore-pattern node_modules"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.18.3",
+    "mongoose": "^8.9.7",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.19.0",
+    "eslint": "^9.19.0",
+    "globals": "^15.14.0",
+    "nodemon": "^3.1.9"
+  }
+}
+
